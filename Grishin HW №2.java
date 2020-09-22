@@ -28,6 +28,10 @@ class Matrix {
         matrix_wid = matrix_len = size;
         matrix = new int[matrix_wid][matrix_len];
     }
+    // Копирка
+    public Matrix(Matrix other) {
+        this(other.matrix_wid, other.matrix_len);
+    }
 
     // Создание матрицы
     public void CreateMatrix() {
@@ -58,8 +62,8 @@ class Matrix {
         return matrix_wid == matrix_len;
     }
 
-    // Сложение матриц (вычитание?)
-    public Matrix Sum(Matrix matrix1, Matrix matrix2) {
+    // Сложение и вычитание матриц (если 0, то сложение; 1 - вычитание)
+    public Matrix Sum(Matrix matrix1, Matrix matrix2, int mode) {
         int size;
 
         if (!matrix1.checkSquare()) {
@@ -69,13 +73,19 @@ class Matrix {
         }
 
         Matrix matrix = new Matrix(size);
-
-        for (int i = 0; i < matrix1.matrix_wid; i++) {
-            for (int j = 0; j < matrix1.matrix_len; j++) {
-                matrix.matrix[i][j] = matrix1.matrix[i][j] + matrix2.matrix[i][j];
+        if (mode == 0){
+            for (int i = 0; i < matrix1.matrix_wid; i++) {
+                for (int j = 0; j < matrix1.matrix_len; j++) {
+                    matrix.matrix[i][j] = matrix1.matrix[i][j] + matrix2.matrix[i][j];
+                }
+            }
+        } else if(mode == 1){
+            for (int i = 0; i < matrix1.matrix_wid; i++) {
+                for (int j = 0; j < matrix1.matrix_len; j++) {
+                    matrix.matrix[i][j] = matrix1.matrix[i][j] + (matrix2.matrix[i][j] * -1);
+                }
             }
         }
-
         return matrix;
     }
 
@@ -102,7 +112,66 @@ class Matrix {
                 }
             }
         }
+        return matrix;
+    }
 
+    // Умножение на число
+    public Matrix Mul(Matrix matrix1, int num){
+        int size;
+        int n;
+
+        if (!matrix1.checkSquare()) {
+            size = matrix1.matrix_wid > matrix1.matrix_len ? matrix1.matrix_len : matrix1.matrix_wid;
+            n = matrix1.matrix_wid > matrix1.matrix_len ? matrix1.matrix_wid : matrix1.matrix_len;
+        } else {
+            size = matrix1.matrix_wid;
+            n = matrix1.matrix_wid;
+        }
+
+        Matrix matrix = new Matrix(size);
+        matrix.fill(0);
+
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                for (int k = 0; k < n; k++) {
+                    matrix.matrix[i][j] += matrix1.matrix[i][k] * num;
+                }
+            }
+        }
+        return matrix;
+    }
+
+    // Транспонирование матрицы
+    public Matrix Trans(Matrix matrix1){
+        Matrix matrix = new Matrix(matrix1.matrix_len, matrix1.matrix_wid);
+        matrix.fill(0);
+
+        for (int i = 0; i < matrix_wid; i++) {
+            for (int j = i+1; j < matrix_len; j++) {
+                matrix.matrix[j][i] = matrix1.matrix[i][j];
+            }
+        }
+        return matrix;
+    }
+
+    // Возведение в степень
+    public Matrix Power(Matrix matrix1, int num){
+        int size;
+        int n;
+
+        if (!matrix1.checkSquare()) {
+            size = matrix1.matrix_wid > matrix1.matrix_len ? matrix1.matrix_len : matrix1.matrix_wid;
+            n = matrix1.matrix_wid > matrix1.matrix_len ? matrix1.matrix_wid : matrix1.matrix_len;
+        } else {
+            size = matrix1.matrix_wid;
+            n = matrix1.matrix_wid;
+        }
+
+        Matrix matrix = new Matrix(matrix1);
+
+        for (int i = 1; i < num; i++){
+            matrix = matrix.Mul(matrix,matrix1);
+        }
         return matrix;
     }
 
