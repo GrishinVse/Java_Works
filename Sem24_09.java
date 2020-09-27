@@ -6,7 +6,6 @@ import java.util.*;
 public class Sem24_09 {
 
     public static void main(String[] args) {
-	// write your code here
         Map<Integer, String> status = new HashMap<Integer, String>();
         status.put(1, "German");
         status.put(2, "QWERTY");
@@ -35,7 +34,14 @@ public class Sem24_09 {
             System.out.printf("Ключ: %d, Значение: %s", person.getKey(),
                     person.getValue().getName());
         }
+        getLettersMap("smdakmkamkmnsckmdjvbjacklscabjcgeb");
 
+        HashMap<String, String> myHashMap = new HashMap<String, String>();
+
+        myHashMap.put("Basil", "07.12.1987");
+        myHashMap.put("Kate", "12.10.1971");
+        myHashMap.put("Lena", "11.01.1991");
+        revertMap(myHashMap);
     }
 
     // №1
@@ -54,11 +60,16 @@ public class Sem24_09 {
         }
     }
 
-    // №2
-    public static <K, V> Map<V, HashMap<K>> revertMap(HashMap<? extends K, ? extends V> mapToRevert){
-        HashMap<V, HashMap<K>> map = new HashMap<>();
-        map.compute(V, (k, v) ->{
-           return ;
-        });
+    // №2 Реализовать метод, который принимает словарь и возвращает словарь, где ключ
+    // меняется местами со значениями.
+    //                   Map<V, HashMap<>>
+    private static <K, V> Map<V, K> revertMap(HashMap<? extends K, ? extends V> mapToRevert){
+        HashMap<V, K> map = new HashMap<>();
+        for(Map.Entry<? extends K, ? extends V> entry : mapToRevert.entrySet())
+            map.put(entry.getValue(), entry.getKey());
+        System.out.println("OLD" + mapToRevert);
+        System.out.println("NEW" + map);
+        //map.compute(K, (k, v) ->);
+        return map;
     }
 }
