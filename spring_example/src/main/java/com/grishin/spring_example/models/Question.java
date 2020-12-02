@@ -1,6 +1,7 @@
 package com.grishin.spring_example.models;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "questions")
@@ -14,7 +15,7 @@ public class Question extends AuditModel {
     )
     private Long id;
 
-    @Column(columnDefinition = "title")
+    @Size(min = 3, max = 100)
     private String title;
 
     @Column(columnDefinition = "text")
