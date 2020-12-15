@@ -52,12 +52,12 @@ public class Main {
         FileWriter writer = new FileWriter(saveFile, true);
 
         if (saveFile.exists()){
-            System.out.print("Хотите ли вы восстановить данный предыдущей сессии? <Y/N> или <Д/Н> : ");
+            System.out.print("Хотите ли вы восстановить данный предыдущей сессии?\n Введите <Y> или <Д> чтобы восстановить ИЛИ любое другое значение чтобы задать поиск заново : ");
             String status = in.next();
             if ((status.toLowerCase().equals("y")) || (status.toLowerCase().equals("д"))){
                 loadFromSave = true;
                 restartApp = false;
-            } else if ((status.toLowerCase().equals("n")) || (status.toLowerCase().equals("н"))) {
+            } else /*if ((status.toLowerCase().equals("n")) || (status.toLowerCase().equals("н")))*/ {
                 new FileWriter(saveFile, false).write("-");
             }
         } else if (!saveFile.exists()) {
@@ -153,6 +153,7 @@ public class Main {
                         "\n1 -> <День>.<Месяц>.<Год>" +
                         "\n2 -> <День><Пробел><Месяц словом>" +
                         "\n3 -> <День><Пробел><Месяц словом><Пробел><Год>");
+                in.nextLine();
                 System.out.print(" > ");
                 String input_date = in.nextLine();
                 System.out.println("Введенная дата --> " + input_date);
