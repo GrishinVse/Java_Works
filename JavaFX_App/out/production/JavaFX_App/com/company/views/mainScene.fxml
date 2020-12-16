@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.Main">
+   <children>
+      <SplitPane dividerPositions="0.32608695652173914" prefHeight="400.0" prefWidth="600.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <TableView layoutX="-4.0" prefHeight="398.0" prefWidth="200.0">
+                    <columns>
+                      <TableColumn prefWidth="75.0" text="FirstName" />
+                      <TableColumn prefWidth="75.0" text="LastName" />
+                    </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <Button layoutX="181.0" layoutY="349.0" mnemonicParsing="false" text="New" />
+                  <Button layoutX="254.0" layoutY="349.0" mnemonicParsing="false" text="Edit" />
+                  <Button layoutX="324.0" layoutY="349.0" mnemonicParsing="false" text="Delete" />
+                  <Label layoutX="14.0" layoutY="14.0" text="User Info" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>
