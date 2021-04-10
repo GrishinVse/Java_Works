@@ -1,12 +1,14 @@
 package com.example.springnewui.models;
 
+import com.example.springnewui.utils.DateUtils;
+import com.google.gson.Gson;
 import javafx.beans.property.*;
 
 import java.time.LocalDate;
 
-public class Person {
-
-    private final StringProperty firstName; // Связь с данными человека
+public class Person{
+    private final LongProperty id; // Связь с данными человека
+    private final StringProperty firstName;
     private final StringProperty lastName;
     private final StringProperty street;
     private final StringProperty city;
@@ -14,20 +16,43 @@ public class Person {
     private final ObjectProperty<LocalDate> birthday;
 
     public Person(){
-        this(null, null);
+        this(Long.valueOf(1), "Иван", "Иванов", "Улица Ленина", "Москва", 111111, LocalDate.of(1900, 1, 1));
     }
 
-    public Person(String firstName, String lastName){
+    /*
+    public Person(){
+        this(Long.valueOf(1), null, null, null, null, 0, null);
+    }
+     */
+
+
+    public Person(String firstName, String lastName, String street, String city, Integer postalCode, LocalDate birthday){
+        this.id = null;
         this.firstName = new SimpleStringProperty(firstName);
         this.lastName = new SimpleStringProperty(lastName);
 
-        this.street = new SimpleStringProperty("Улица Ленина");
-        this.city = new SimpleStringProperty("Москва");
-        this.postalCode = new SimpleIntegerProperty(123456);
-        this.birthday = new SimpleObjectProperty<LocalDate>(LocalDate.of(1990, 1, 1));
+        this.street = new SimpleStringProperty(street); //"Улица Ленина"
+        this.city = new SimpleStringProperty(city); //"Москва"
+        this.postalCode = new SimpleIntegerProperty(postalCode); //123456
+        this.birthday = new SimpleObjectProperty<LocalDate>(birthday); //LocalDate.of(1990, 1, 1)
+    }
+
+    public Person(Long id, String firstName, String lastName, String street, String city, Integer postalCode, LocalDate birthday){
+        this.id = new SimpleLongProperty(id);
+        this.firstName = new SimpleStringProperty(firstName);
+        this.lastName = new SimpleStringProperty(lastName);
+
+        this.street = new SimpleStringProperty(street); //"Улица Ленина"
+        this.city = new SimpleStringProperty(city); //"Москва"
+        this.postalCode = new SimpleIntegerProperty(postalCode); //123456
+        this.birthday = new SimpleObjectProperty<LocalDate>(birthday); //LocalDate.of(1990, 1, 1)
     }
 
     // Основные гетеры
+
+    public long getId() {
+        return id.get();
+    }
 
     public String getFirstName() {
         return firstName.get();
@@ -79,7 +104,11 @@ public class Person {
         this.birthday.set(birthday);
     }
 
-    // Побочные гетеры
+    public void setId(Long id) {this.id.set(id);}
+
+    // Гетеры для связи
+
+    public LongProperty idProperty() { return id; } // getIdProperty
 
     public StringProperty getFirstNameProperty() {
         return firstName;
@@ -103,5 +132,35 @@ public class Person {
 
     public ObjectProperty<LocalDate> getBirthdayProperty() {
         return birthday;
+    }
+
+    /*
+    @Override
+    public String toJson() {
+        Map<String, String> map = new HashMap<>();
+        map.put("firstName", firstName.getValue());
+        map.put("lastName", lastName.getValue());
+        map.put("city", city.getValue());
+        map.put("postalCode", String.valueOf(postalCode.getValue()));
+        map.put("birthday", DateUtils.format(birthday.getValue()));
+
+        Gson gson = new Gson();
+
+        return gson.toJson(map);
+    }
+
+     */
+
+    @Override
+    public String toString() {
+        return "{" +
+                "id : " + getId() + ",\n" +
+                "firstName : " + getFirstName() + ",\n" +
+                "lastName : " + getLastName() + ",\n" +
+                "street : " + getStreet() + ",\n" +
+                "city : " + getCity() + ",\n" +
+                "postalCode : " + getPostalCode() + ",\n" +
+                "birthday : " + getBirthday() + ",\n" +
+                '}';
     }
 }

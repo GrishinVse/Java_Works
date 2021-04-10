@@ -5,7 +5,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import com.example.springnewui.models.Person;
-import sample.utils.DateUtils;
+import com.example.springnewui.utils.DateUtils;
 
 public class PersonEditDialogController {
     @FXML
