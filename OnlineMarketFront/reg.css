@@ -1,0 +1,93 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html{
+    min-height: 100%;
+}
+
+div.header h1{
+    padding-top: 40px;
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+div.header p{
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+body {
+    font: 100% / 1.5 "Antonio";
+    background-color: #ceaf81;
+    background: repeating-linear-gradient(90deg, #755d51, #4db190, #755d51);
+    background-size:50px 50px;/* This is unique for this background, need to find a pattern and develop a formula */
+	background-position-x:0%;
+	-webkit-animation: slide 110s infinite linear forwards;
+    margin: auto;
+}
+
+@-webkit-keyframes slide{
+	0% { background-position: 0% 0; }
+    100% { background-position: 100% 0; }
+}
+
+.container {
+    background: #ffffff;
+    width: 500px;
+    height: 200px;
+    border: 5px solid black;
+    border-radius: 20px;
+
+    margin: auto;
+}
+
+div.reg_class{
+    font-size: 17px;
+    padding: 10px;
+
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+div.reg_class input{
+    width: 200px;
+    height: 25px;
+    
+    font-size: 15px;
+    font-family: "Antonio";
+
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin-left: 20px;
+
+    border-radius: 10px;
+}
+
+div.reg_btn {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+}
+
+input.btn {
+    width: 150px;
+    height: 35px;
+    font-family: "Antonio";
+    font-weight: 1000;
+    font-size: 20px;
+    text-align: center;
+    background:#2079ad;
+
+    border-radius: 10px;
+    border: 2px solid black;
+}
