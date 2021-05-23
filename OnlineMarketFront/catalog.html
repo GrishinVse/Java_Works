@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>Online Market</title>
-        <link rel="stylesheet" href="main.css">
+        <link rel="stylesheet" href="catalog.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
@@ -25,50 +25,20 @@
                         <li><a href="">Delivery</a></li>
                         <li><a href="">Contacts</a></li>
                         <li><a href="">About</a></li>
-                        <li><a href="/reg.html"><img src="images/login.png" width="30px" height="30px" style="padding-top: 5px;">Login</a></li>
-                        <li><a href="/cart.html"><img src="images/cart.png" width="30px" height="30px" style="padding-top: 5px;"></a></li>
+                        <li><a href="/reg.html"><img src="/images/login.png" width="30px" height="30px" style="padding-top: 5px;">Login</a></li>
+                        <li><a href="/cart.html"><img src="/images/cart.png" width="30px" height="30px" style="padding-top: 5px;"></a></li>
                     </ul>
                 </nav>
             </div>
-
-            <div class="row">
-                <div class="col_1">
-                    <h1>Find your smartphone here!</h1>
-                    <p>New IPhone<span style="font-size: 10px;">&#169</span> 12, 12 Pro and Pro Max
-                        are avaliable in various colors!
-                    </p>
-                    <a href="/catalog.html" class="btn">Explore Now! &#8658</a>
-                </div>
-                <div class="col_2">
-                    <img src="/images/iphone_12.png">
-                </div>
-            </div>
-        </div>
-    </div>
-        
-    <!----- part with examples ----->
-    <div class="categories">
-        <div class="small_container">
-            <div class="row">
-                <div class="col_3">
-                    <img src="/images/item_1.png">
-                </div>
-                <div class="col_3">
-                    <img src="/images/item_2.png">
-                </div>
-                <div class="col_3">
-                    <img src="/images/item_3.png">
-                </div>
-            </div>
         </div>
     </div>
 
-    <!----- part with popular products ----->
+    <!----- part with all products ----->
 
     <div class="small_container">
-        <h2 class="title_popular">Popular Products</h2>
+        <h2 class="title_all">All Products</h2>
         <div class="row">
-            <div class="col_4">
+            <div class="col_3" onclick="document.location='items/item_1.html'">
                 <img src="/images/airpods_pro.png">
                 <h4>AirPods Pro<span style="font-size: 10px;">&#169</span></h4>
                 <div class="rating">                
@@ -80,7 +50,7 @@
                 </div>
                 <p>$90.00</p>
             </div>
-            <div class="col_4">
+            <div class="col_3" onclick="document.location='items/item_2.html'">
                 <img src="/images/11_case.png">
                 <h4>iPhone 11<span style="font-size: 10px;">&#169</span> Case Dark-Blue</h4>
                 <div class="rating">                
@@ -92,7 +62,7 @@
                 </div>
                 <p>$45.00</p>
             </div>
-            <div class="col_4">
+            <div class="col_3" onclick="document.location='items/item_3.html'">
                 <img src="/images/headphones.png">
                 <h4>Earpods<span style="font-size: 10px;">&#169</span> mini-Jack</h4>
                 <div class="rating">                
@@ -106,9 +76,8 @@
             </div>
         </div>
 
-        <h2 class="title_popular">Latests Products</h2>
         <div class="row">
-            <div class="col_4">
+            <div class="col_3">
                 <img src="/images/latest_1.jpg">
                 <h4>AirPods Pro<span style="font-size: 10px;">&#169</span> Silicon Case</h4>
                 <div class="rating">                
@@ -120,7 +89,7 @@
                 </div>
                 <p>$25.00</p>
             </div>
-            <div class="col_4">
+            <div class="col_3">
                 <img src="/images/latest_2.jpg">
                 <h4>AirPods Pro<span style="font-size: 10px;">&#169</span> Stone Face Case</h4>
                 <div class="rating">                
@@ -133,7 +102,7 @@
                 </div>
                 <p>$999.00</p>
             </div>
-            <div class="col_4">
+            <div class="col_3">
                 <img src="/images/latest_3.jpeg">
                 <h4>MagSafe<span style="font-size: 10px;">&#169</span> Charger Stand</h4>
                 <div class="rating">                
@@ -147,11 +116,44 @@
             </div>
         </div>
 
-
-
+        <div class="row">
+            <div class="col_3">
+                <img src="/images/catalog_1.jpeg">
+                <h4>iPhone<span style="font-size: 10px;">&#169</span> Stand</h4>
+                <div class="rating">                
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                </div>
+                <p>$45.00</p>
+            </div>
+            <div class="col_3">
+                <img src="/images/catalog_2.jpeg">
+                <h4>iPhone 12 Pro<span style="font-size: 10px;">&#169</span> Pop-It Silicon Case</h4>
+                <div class="rating">                
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                </div>
+                <p>$20.00</p>
+            </div>
+            <div class="col_3">
+                <img src="/images/catalog_3.jpg">
+                <h4>iPhone<span style="font-size: 10px;">&#169</span> Ring Minion</h4>
+                <div class="rating">                
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star-o"></span>
+                </div>
+                <p>$9.99</p>
+            </div>
+        </div>
     </div>
-        
-
-
     </body>
 </html>

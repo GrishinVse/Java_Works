@@ -91,3 +91,33 @@ input.btn {
     border-radius: 10px;
     border: 2px solid black;
 }
+
+input.btn:hover{
+    background:#2895d4;
+    border-color: #3b6163 ;
+}
+
+div.back_to_menu_btn {
+    position: relative;
+    display: flex;
+    justify-content: left;
+    padding: 30px;
+}
+
+button{
+    width: 150px;
+    height: 35px;
+    font-family: "Antonio";
+    font-weight: 1000;
+    font-size: 20px;
+    text-align: center;
+    background:#2079ad;
+
+    border-radius: 10px;
+    border: 2px solid black;
+}
+
+button:hover{
+    background:#2895d4;
+    border-color: #3b6163 ;
+}
