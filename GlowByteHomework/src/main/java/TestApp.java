@@ -5,13 +5,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TestApp {
+    // Путь к выходному файлу
     static final private String pathToSave = "C:/Users/vsevo/IdeaProjects/result.txt";
-    static final String JDBC_DRIVER = "org.h2.Driver";
-    static final String DB_URL = "jdbc:h2:file:D:/H2_database/glowbyte";
 
-    static final String USER = "vsevo";
-    static final String PASS = "1234";
+    // Параметры базы данных
+    static final private String JDBC_DRIVER = "org.h2.Driver";
+    static final private String DB_URL = "jdbc:h2:file:D:/H2_database/glowbyte";
 
+    // Параметры для аутентификации
+    static final private String USER = "vsevo";
+    static final private String PASS = "1234";
+
+    /**
+     * Метод возвращает результат запроса к таблице, указаной в параметре
+     * @param tableName - название таблицы
+     * @return - вывод информации из таблицы базы данных
+     */
     public static ArrayList<ArrayList<String>> selectFromTable(String tableName) {
         Connection conn = null;
         Statement stmt = null;
@@ -19,7 +28,6 @@ public class TestApp {
             Class.forName(JDBC_DRIVER);
 
             conn = DriverManager.getConnection(DB_URL,USER,PASS);
-
             stmt = conn.createStatement();
 
             if (tableName.strip().toLowerCase().equals("table_list")) {
@@ -48,7 +56,6 @@ public class TestApp {
                         table_list.add((ArrayList<String>) line);
                     }
                 }
-
                 rs.close();
                 return table_list;
             } else if (tableName.strip().toLowerCase().equals("table_cols")) {
@@ -70,7 +77,6 @@ public class TestApp {
 
                     table_cols.add((ArrayList<String>) line);
                 }
-
                 rs.close();
                 return table_cols;
             }
@@ -92,6 +98,11 @@ public class TestApp {
         return null;
     }
 
+    /**
+     * Метод выводит результат обработки в командную строку и записывает в файл pathToSave
+     * @param table1 - первая таблица
+     * @param table2 - вторая таблица
+     */
     public static void saveRes(ArrayList<ArrayList<String>> table1, ArrayList<ArrayList<String>> table2) {
         String result = "";
         for (ArrayList<String> el_1 : table1) {
@@ -106,6 +117,7 @@ public class TestApp {
         }
         System.out.println(result);
 
+        // Запись в файл
         try {
             FileWriter myWriter = new FileWriter(pathToSave);
             myWriter.write(result);
